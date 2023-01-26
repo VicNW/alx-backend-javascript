@@ -1,66 +1,39 @@
 /* eslint-disable no-underscore-dangle */
-
 export default class HolbertonCourse {
   constructor(name, length, students) {
-    if (typeof name != 'string') {
-      throw new TypeError("Name must be a string");
-    }
-    else {
-      this._name = name;
-    }
-    if (typeof length != 'number') {
-      throw new TypeError("Length must be a number");
-    }
-    else {
-      this._length = length;
-    }
-    if (!Array.isArray(students)) {
-      throw new TypeError("Students must be an array");
-    }
-    else {
-      this._students = students;
-    }
+    if (typeof name !== 'string') throw new TypeError('name must be a string');
+    if (!Number.isInteger(length)) throw new TypeError('length must be a number');
+    if (!Array.isArray(students)) throw new TypeError('students type must be an Array');
+
+    this._name = name;
+    this._length = length;
+    this._students = students;
   }
 
   get name() {
     return this._name;
   }
 
-  set name(n) {
-    if (typeof n != 'string') {
-      throw new TypeError("Name must be a string");
-    }
-    else {
-      //name = n;
-      this._name = n;
-    }
+  set name(val) {
+    if (typeof val !== 'string') throw new TypeError('name must be a string');
+    this._name = val;
   }
 
   get length() {
     return this._length;
   }
 
-  set length(len) {
-    if (typeof n != 'number') {
-      throw new TypeError("Length must be an number");
-    }
-    else {
-      //length = n;
-      this.length = n;
-    }
+  set length(val) {
+    if (!Number.isInteger(val)) throw new TypeError('length must be a number');
+    this._length = val;
   }
 
   get students() {
-    return this._studens;
+    return this._students;
   }
 
-  set students(std) {
-    if (!Array.isArray(students)) {
-      throw new TypeError("Students must be an array");
-    }
-    else {
-     // students = n;
-      this._students = n;
-    }
-  } 
+  set students(val) {
+    if (!Array.isArray(val)) throw new TypeError('students type must be an Array');
+    this._students = val;
+  }
 }
